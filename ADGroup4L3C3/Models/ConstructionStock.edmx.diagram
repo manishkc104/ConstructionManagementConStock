@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0063c7975c054b329ea995e6cabfc9c1" Name="Diagram1">
+        <EntityTypeShape EntityType="ADG4_L3C3Model.Product" Width="1.5" PointX="7.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.ProductSales" Width="1.5" PointX="9.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.ProductType" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.ProductTypeSupplier" Width="1.5" PointX="7.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.Sales" Width="1.5" PointX="5.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.Stock" Width="1.5" PointX="12.75" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.StockManagment" Width="1.5" PointX="15" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.SupplierDetail" Width="1.5" PointX="10.5" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.Suppliers" Width="1.5" PointX="5.25" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.UserAccounts" Width="1.5" PointX="3" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.UserDetails" Width="1.5" PointX="5.25" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ADG4_L3C3Model.UserType" Width="1.5" PointX="0.75" PointY="14" IsExpanded="true" />
+        <AssociationConnector Association="ADG4_L3C3Model.Product_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.Product_ProductType_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.ProductSales_Product_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.Stock_Product_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.ProductSales_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.ProductSales_Sales_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.ProductType_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.ProductTypeSupplier_PT_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.ProductTypeSupplier_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.ProductTypeSupplier_Sup_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.Sales_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.Sales_UserAccounts_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.Stock_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.StockManagment_Stock_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.StockManagment_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.StockManagment_UA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.SupplierDetail_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.SupplierDetail_Supplier_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.Suppliers_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.UserAccounts_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.UserAccounts_UserType_FKv1" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.UserDetails_ModifiedBy_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="ADG4_L3C3Model.UserDetails_UserAccounts_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

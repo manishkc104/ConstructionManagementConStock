@@ -1,0 +1,112 @@
+﻿@model ADGroup4L3C3.Models.ProductDetails
+
+@{
+    ViewBag.Title = "Products";
+}
+
+@section content{
+    <div class="row">
+        @if (ViewBag.Error != null)
+        {
+            <div id="main-alert" class="alerts">
+                <div class="alert alert-danger">
+                    @ViewBag.Error
+                </div>
+            </div>
+        }
+    </div>
+  
+    <div class="page">
+        <div class="page-content d-flex align-items-stretch">
+            <div class="col-lg-12">
+                <section class="tables">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="card">
+                                    <div class="card-header d-flex align-items-center">
+                                        <h3 class="h4">Details</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            Product ID
+                                                        </th>
+                                                        <th>
+                                                            Product Name
+                                                        </th>
+                                                        <th>
+                                                            Product Type
+                                                        </th>
+                                                        <th>
+                                                            Price Per Item
+                                                        </th>
+                                                        <th>
+                                                            Description
+                                                        </th>
+                                                        <th>
+                                                            Date Added
+                                                        </th>
+                                                        <th>
+                                                            Quantity Remaining
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                  
+                                                <tr>
+                                                    <td>
+                                                        @Html.DisplayFor(model => model.ProductID)
+                                                    </td>
+
+
+                                                    <td>
+                                                        @Html.DisplayFor(model => model.ProductName)
+                                                    </td>
+
+                                                    <td>
+                                                        @Html.DisplayFor(model => model.ProductTypeName)
+                                                    </td>
+
+
+
+                                                    <td>
+                                                        @Html.DisplayFor(model => model.PricePerItem)
+                                                    </td>
+
+
+
+                                                    <td>
+                                                        @Html.DisplayFor(model => model.Description)
+                                                    </td>
+
+
+
+                                                    <td>
+                                                        @Html.DisplayFor(model => model.DateCreated)
+                                                    </td>
+
+
+                                                    <td>
+                                                        @Html.DisplayFor(model => model.QuantityRemaining)
+                                                    </td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+                                            <p> @Html.ActionLink("Back to List", "Index")</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+}
+

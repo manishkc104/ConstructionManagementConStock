@@ -1,0 +1,541 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ADG4_L3C3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductTypeID" Type="int" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="100" />
+    <Property Name="PricePerItem" Type="int" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductSales">
+    <Key>
+      <PropertyRef Name="ProductSalesID" />
+    </Key>
+    <Property Name="ProductSalesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="SalesID" Type="int" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductType">
+    <Key>
+      <PropertyRef Name="ProductTypeID" />
+    </Key>
+    <Property Name="ProductTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductTypeName" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductTypeSupplier">
+    <Key>
+      <PropertyRef Name="ProductTypeID" />
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="ProductTypeSupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductTypeID" Type="int" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="SalesID" />
+    </Key>
+    <Property Name="SalesID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BillingDate" Type="date" />
+    <Property Name="BillingAmount" Type="int" />
+    <Property Name="UserAccountID" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="StockID" />
+    </Key>
+    <Property Name="StockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductID" Type="int" Nullable="false" />
+    <Property Name="QuantityRemaining" Type="int" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StockManagment">
+    <Key>
+      <PropertyRef Name="StockManagementID" />
+    </Key>
+    <Property Name="StockManagementID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StockID" Type="int" Nullable="false" />
+    <Property Name="OperationType" Type="varchar" MaxLength="100" />
+    <Property Name="OperationDate" Type="date" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="UserAccountID" Type="int" Nullable="false" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SupplierDetail">
+    <Key>
+      <PropertyRef Name="SupplierDetailID" />
+    </Key>
+    <Property Name="SupplierDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierID" Type="int" Nullable="false" />
+    <Property Name="ContactNumber" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="ContactPersonName" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="SupplierID" />
+    </Key>
+    <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SupplierEmail" Type="varchar" MaxLength="100" />
+    <Property Name="RegistrationNumber" Type="varchar" MaxLength="100" />
+    <Property Name="SupplierName" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="UserAccounts">
+    <Key>
+      <PropertyRef Name="UserAccountID" />
+    </Key>
+    <Property Name="UserAccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserTypeID" Type="int" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="Password" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="UserDetails">
+    <Key>
+      <PropertyRef Name="UserDetailD" />
+    </Key>
+    <Property Name="UserDetailD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserAccountID" Type="int" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="100" />
+    <Property Name="LastName" Type="varchar" MaxLength="100" />
+    <Property Name="BirthDate" Type="date" />
+    <Property Name="Phone" Type="varchar" MaxLength="100" />
+    <Property Name="Address" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+    <Property Name="ModifiedBy" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserType">
+    <Key>
+      <PropertyRef Name="UserTypeID" />
+    </Key>
+    <Property Name="UserTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserTypeName" Type="varchar" MaxLength="100" />
+    <Property Name="DateCreated" Type="date" />
+    <Property Name="DateModified" Type="date" />
+  </EntityType>
+  <Association Name="Product_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Product_ProductType_FK">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="ProductTypeID" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSales_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="ProductSales" Type="Self.ProductSales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="ProductSales">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSales_Product_FK">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="ProductSales" Type="Self.ProductSales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductSales">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductSales_Sales_FK">
+    <End Role="Sales" Type="Self.Sales" Multiplicity="1" />
+    <End Role="ProductSales" Type="Self.ProductSales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sales">
+        <PropertyRef Name="SalesID" />
+      </Principal>
+      <Dependent Role="ProductSales">
+        <PropertyRef Name="SalesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductType_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="ProductType">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductTypeSupplier_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="ProductTypeSupplier" Type="Self.ProductTypeSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="ProductTypeSupplier">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductTypeSupplier_PT_FK">
+    <End Role="ProductType" Type="Self.ProductType" Multiplicity="1" />
+    <End Role="ProductTypeSupplier" Type="Self.ProductTypeSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductType">
+        <PropertyRef Name="ProductTypeID" />
+      </Principal>
+      <Dependent Role="ProductTypeSupplier">
+        <PropertyRef Name="ProductTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ProductTypeSupplier_Sup_FK">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="ProductTypeSupplier" Type="Self.ProductTypeSupplier" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="ProductTypeSupplier">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sales_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Sales_UserAccounts_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="UserAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Stock_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Stock_Product_FK">
+    <End Role="Product" Type="Self.Product" Multiplicity="1" />
+    <End Role="Stock" Type="Self.Stock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Stock">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockManagment_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="StockManagment" Type="Self.StockManagment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="StockManagment">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockManagment_Stock_FK">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="1" />
+    <End Role="StockManagment" Type="Self.StockManagment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="StockID" />
+      </Principal>
+      <Dependent Role="StockManagment">
+        <PropertyRef Name="StockID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="StockManagment_UA_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="StockManagment" Type="Self.StockManagment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="StockManagment">
+        <PropertyRef Name="UserAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplierDetail_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="SupplierDetail" Type="Self.SupplierDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="SupplierDetail">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SupplierDetail_Supplier_FK">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="SupplierDetail" Type="Self.SupplierDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="SupplierID" />
+      </Principal>
+      <Dependent Role="SupplierDetail">
+        <PropertyRef Name="SupplierID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Suppliers_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserAccounts_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="0..1" />
+    <End Role="UserAccounts1" Type="Self.UserAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="UserAccounts1">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserAccounts_UserType_FKv1">
+    <End Role="UserType" Type="Self.UserType" Multiplicity="1" />
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserType">
+        <PropertyRef Name="UserTypeID" />
+      </Principal>
+      <Dependent Role="UserAccounts">
+        <PropertyRef Name="UserTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserDetails_ModifiedBy_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="UserDetails">
+        <PropertyRef Name="ModifiedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UserDetails_UserAccounts_FK">
+    <End Role="UserAccounts" Type="Self.UserAccounts" Multiplicity="1" />
+    <End Role="UserDetails" Type="Self.UserDetails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserAccounts">
+        <PropertyRef Name="UserAccountID" />
+      </Principal>
+      <Dependent Role="UserDetails">
+        <PropertyRef Name="UserAccountID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ADG4_L3C3ModelStoreContainer">
+    <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductSales" EntityType="Self.ProductSales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductType" EntityType="Self.ProductType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductTypeSupplier" EntityType="Self.ProductTypeSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StockManagment" EntityType="Self.StockManagment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SupplierDetail" EntityType="Self.SupplierDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserAccounts" EntityType="Self.UserAccounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserDetails" EntityType="Self.UserDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="Product_ModifiedBy_FK" Association="Self.Product_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="Product_ProductType_FK" Association="Self.Product_ProductType_FK">
+      <End Role="ProductType" EntitySet="ProductType" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSales_ModifiedBy_FK" Association="Self.ProductSales_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="ProductSales" EntitySet="ProductSales" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSales_Product_FK" Association="Self.ProductSales_Product_FK">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductSales" EntitySet="ProductSales" />
+    </AssociationSet>
+    <AssociationSet Name="ProductSales_Sales_FK" Association="Self.ProductSales_Sales_FK">
+      <End Role="Sales" EntitySet="Sales" />
+      <End Role="ProductSales" EntitySet="ProductSales" />
+    </AssociationSet>
+    <AssociationSet Name="ProductType_ModifiedBy_FK" Association="Self.ProductType_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="ProductType" EntitySet="ProductType" />
+    </AssociationSet>
+    <AssociationSet Name="ProductTypeSupplier_ModifiedBy_FK" Association="Self.ProductTypeSupplier_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="ProductTypeSupplier" EntitySet="ProductTypeSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="ProductTypeSupplier_PT_FK" Association="Self.ProductTypeSupplier_PT_FK">
+      <End Role="ProductType" EntitySet="ProductType" />
+      <End Role="ProductTypeSupplier" EntitySet="ProductTypeSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="ProductTypeSupplier_Sup_FK" Association="Self.ProductTypeSupplier_Sup_FK">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="ProductTypeSupplier" EntitySet="ProductTypeSupplier" />
+    </AssociationSet>
+    <AssociationSet Name="Sales_ModifiedBy_FK" Association="Self.Sales_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="Sales_UserAccounts_FK" Association="Self.Sales_UserAccounts_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="Stock_ModifiedBy_FK" Association="Self.Stock_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="Stock_Product_FK" Association="Self.Stock_Product_FK">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Stock" EntitySet="Stock" />
+    </AssociationSet>
+    <AssociationSet Name="StockManagment_ModifiedBy_FK" Association="Self.StockManagment_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="StockManagment" EntitySet="StockManagment" />
+    </AssociationSet>
+    <AssociationSet Name="StockManagment_Stock_FK" Association="Self.StockManagment_Stock_FK">
+      <End Role="Stock" EntitySet="Stock" />
+      <End Role="StockManagment" EntitySet="StockManagment" />
+    </AssociationSet>
+    <AssociationSet Name="StockManagment_UA_FK" Association="Self.StockManagment_UA_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="StockManagment" EntitySet="StockManagment" />
+    </AssociationSet>
+    <AssociationSet Name="SupplierDetail_ModifiedBy_FK" Association="Self.SupplierDetail_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="SupplierDetail" EntitySet="SupplierDetail" />
+    </AssociationSet>
+    <AssociationSet Name="SupplierDetail_Supplier_FK" Association="Self.SupplierDetail_Supplier_FK">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="SupplierDetail" EntitySet="SupplierDetail" />
+    </AssociationSet>
+    <AssociationSet Name="Suppliers_ModifiedBy_FK" Association="Self.Suppliers_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="UserAccounts_ModifiedBy_FK" Association="Self.UserAccounts_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="UserAccounts1" EntitySet="UserAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="UserAccounts_UserType_FKv1" Association="Self.UserAccounts_UserType_FKv1">
+      <End Role="UserType" EntitySet="UserType" />
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+    </AssociationSet>
+    <AssociationSet Name="UserDetails_ModifiedBy_FK" Association="Self.UserDetails_ModifiedBy_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="UserDetails" EntitySet="UserDetails" />
+    </AssociationSet>
+    <AssociationSet Name="UserDetails_UserAccounts_FK" Association="Self.UserDetails_UserAccounts_FK">
+      <End Role="UserAccounts" EntitySet="UserAccounts" />
+      <End Role="UserDetails" EntitySet="UserDetails" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
